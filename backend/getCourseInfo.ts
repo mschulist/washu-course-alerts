@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getCourseInfo = async (sem: string, sch: string, dept: string, crs: string) => {
+const getCourseInfo = async (sem: string, sch: string, dept: string, crs: string) => {
     const uri = 'https://acadinfo.wustl.edu/CourseListings/CourseInfo.aspx';
 
     const params = {
@@ -14,3 +14,5 @@ export const getCourseInfo = async (sem: string, sch: string, dept: string, crs:
     console.log(res.data);
     return res.data;
 };
+
+export { getCourseInfo };
