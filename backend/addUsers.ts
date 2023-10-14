@@ -4,48 +4,42 @@ const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/
 
 const serviceAccount = require('./firebase_key.json');
 
+initializeApp({
+    credential: cert(serviceAccount)
+});
+
+
 async function addEmailName(email: string, name: string) {
-    initializeApp({
-        credential: cert(serviceAccount)
-    });
 
     const db = getFirestore();
 
     const snapshot = await db.collection('users').doc(email).set({
         name: name,
-        email: email
+        email: email,
+        courses: [],
     });
 }
 
 async function addPhoneNumber(phoneNumber: string, email: string) {
-    initializeApp({
-        credential: cert(serviceAccount)
-    });
 
     const db = getFirestore();
 
     const snapshot = await db.collection('users').doc(email).set({
         phoneNumber: phoneNumber
-    });
+    }, { merge: true });
 }
 
 async function addCourses(courses: string[], email: string) {
-    initializeApp({
-        credential: cert(serviceAccount)
-    });
 
     const db = getFirestore();
 
-    const snapshot = await db.collection('users').doc(email).set({
-        courses: courses
-    });
+    const snapshot = await db.collection('users').doc(email).update({
+        courses: FieldValue.arrayUnion(courses)
+    }, { merge: true });
 }
 
 
 // async function addUsers(email: string, name: string, phoneNumber: string, courses: string[]) {
-//     initializeApp({
-//         credential: cert(serviceAccount)
-//     });
 
 //     const db = getFirestore();
 

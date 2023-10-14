@@ -14,7 +14,7 @@ async function main() {
 
 
     users.map(async (user: any) => {
-        const courses = user.Courses;
+        const courses = user.courses;
         console.log(courses);
         courses.map(async (course: any) => {
             const sec = course.sec;
