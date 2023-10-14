@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import AccountSetup from "./pages/AccountSetup";
-import Test from "./pages/Test";
+import Test from "./pages/Login";
 import 'firebase/compat/auth';
 
 
@@ -69,9 +69,8 @@ function App() {
     <BrowserRouter>
 
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="login" element={<Login />} />
         <Route path="home" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="account-setup" element={<AccountSetup />} />
         <Route path="test" element={<Test />} />
       </Routes>

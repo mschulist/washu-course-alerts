@@ -2,8 +2,11 @@ import '../App.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 function AccountSetup() {
+
+    const navigate = useNavigate();
 
     const [phoneNumber, setPhoneNumber] = useState('');
 
@@ -30,6 +33,7 @@ function AccountSetup() {
             }
         })
         console.log(phoneNumber)
+        navigate('/home')
     }
 
     return (
