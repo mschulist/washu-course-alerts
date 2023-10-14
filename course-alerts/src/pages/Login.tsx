@@ -2,6 +2,7 @@ import { signInWithGoogle } from '../services/firebase';
 import '../App.css'
 
 function Login() {
+
     return (
         <div className="grid grid-cols-2 grid-rows-2 gap-4">
         <div className="grid row-span-2">

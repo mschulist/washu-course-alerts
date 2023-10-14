@@ -34,13 +34,14 @@ const db = getFirestore(app);
 export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
 
-const navigate = useNavigate();
+
 
 firebase.initializeApp(firebaseConfig);
 
 // export const auth = firebase.auth();
 
 export const signInWithGoogle = () => {
+  const navigate = useNavigate();
     loginGoogle()
         .then(async () => {
             // this.isLoading = true;
@@ -92,7 +93,7 @@ const handleLoginError = () => {
 async function getUserStatus(email: string): Promise <boolean> {
     return new Promise<boolean> (async (resolve) => {
         const user = firebase.auth().currentUser;
-        const userDoc = await getDoc(doc(db, "courses", user!.uid));
+        const userDoc = await getDoc(doc(db, "user", user!.uid));
         if (userDoc.exists()) {
             const userData = userDoc.data();
             const phoneNumber: number = userData!.phoneNumber;
@@ -108,15 +109,11 @@ async function getUserStatus(email: string): Promise <boolean> {
 }
 
 function loginGoogle(this: any): Promise<void> {
-    signInWithPopup(auth, provider)
     return new Promise((resolve, reject) => {
       signInWithPopup(auth, provider)
       .then(async (result: any) => {
         // User signed in
         if (result.user && result.user.email) {
-          const idTokenResult = await result.user.getIdTokenResult();
-          const expirationTimeInMilliseconds = idTokenResult.claims['exp'] * 1000;
-          const expiresIn = new Date(expirationTimeInMilliseconds);
         //   handleAuthentication(result.user.uid, result.user.email, result.user.refreshToken, expiresIn.getTime().toString());
           resolve();
         } else {
