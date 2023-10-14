@@ -4,39 +4,39 @@ const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/
 
 const serviceAccount = require('./firebase_key.json');
 
-async function addEmailName(email: string, name: string, id: string) {
+async function addEmailName(email: string, name: string) {
     initializeApp({
         credential: cert(serviceAccount)
     });
 
     const db = getFirestore();
 
-    const snapshot = await db.collection('users').doc(id).set({
+    const snapshot = await db.collection('users').doc(email).set({
         name: name,
         email: email
     });
 }
 
-async function addPhoneNumber(phoneNumber: string, id: string) {
+async function addPhoneNumber(phoneNumber: string, email: string) {
     initializeApp({
         credential: cert(serviceAccount)
     });
 
     const db = getFirestore();
 
-    const snapshot = await db.collection('users').doc(id).set({
+    const snapshot = await db.collection('users').doc(email).set({
         phoneNumber: phoneNumber
     });
 }
 
-async function addCourses(courses: string[], id: string) {
+async function addCourses(courses: string[], email: string) {
     initializeApp({
         credential: cert(serviceAccount)
     });
 
     const db = getFirestore();
 
-    const snapshot = await db.collection('users').doc(id).set({
+    const snapshot = await db.collection('users').doc(email).set({
         courses: courses
     });
 }

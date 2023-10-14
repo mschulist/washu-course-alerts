@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { getSectionSeats } from './getCourseInfo';
 import { sendText } from './sendText';
 import { getUsers } from './getUsers';
+import { removeCourse } from './removeCourse';
 
 // TODO: Add a cron job to run this every 5 minutes
 // Get data from firestore
@@ -29,6 +30,7 @@ async function main() {
             console.log(user.name)
             if (seatsOpen > 0) {
                 sendText(user.phoneNumber, `${user.name}, there are ${seatsOpen} seats open in ${course.dept} ${course.crs} section ${course.sec}`);
+                removeCourse(user.email, course);
             }
         })
     })
