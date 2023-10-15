@@ -27,7 +27,7 @@ async function main() {
             const seats = parsed[0];
             const seatsTaken = parsed[1];
             const seatsOpen = seats - seatsTaken;
-            console.log(user.name)
+            console.log(user.email)
             if (seatsOpen > 0) {
                 sendText(user.phoneNumber, `${user.name}, there are ${seatsOpen} seats open in ${course.dept} ${course.crs} section ${course.sec}`);
                 removeCourse(user.email, course);

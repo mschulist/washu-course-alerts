@@ -77,7 +77,7 @@ const AuthComponent = () => {
                     <button onClick={handleSignIn} className="button p-5 w-7/12 bg-gray-300">
                         <div className="mt-1">
                             <div className="flex gap-0">
-                                <div className="flex w-3/12 p-0">
+                                <div className="flex w-3/12 h-full p-0">
                                     <img className="pl-4 pr-0" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
                                 </div>
                                 <div className="flex w-9/12 pl-0 pt-2">
