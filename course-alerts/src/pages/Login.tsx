@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
 const firebaseConfig = {
@@ -15,7 +15,7 @@ const firebaseConfig = {
     appId: "1:514873528283:web:f7d2a2465eef97a7bc61fe",
     measurementId: "G-LZLY2WG27V"
 };
-import logo from '../assets/logo2.png';
+import logo from '../assets/logo3.png';
 
     //     <div className="grid grid-cols-2 grid-rows-2 gap-4">
     //     <div className="grid row-span-2">
@@ -97,14 +97,14 @@ const AuthComponent = () => {
                     <h1 className="text-center font-bold mb-4">WashU Course Alert</h1>
                 </div>
                 <div className="flex flex-row place-content-center">
-                    <button onClick={handleSignIn} className="button p-5 bg-gray-700">
+                    <button onClick={handleSignIn} className="button p-5 w-7/12 bg-gray-300">
                         <div className="mt-1">
-                            <div className="flex gap-4">
-                                <div className="flex w-1/6">
-                                    <img width="40px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                            <div className="flex gap-0">
+                                <div className="flex w-3/12 p-0">
+                                    <img className="pl-4 pr-0" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
                                 </div>
-                                <div className="flex w-5/6">
-                                    <p className="text-center">Sign in with Google</p>
+                                <div className="flex w-9/12 pl-0 pt-2">
+                                    <h1 className="text-3xl text-center text-gray-700">Sign in with Google</h1>
                                 </div>
                             </div>
                         </div>
