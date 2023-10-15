@@ -1,14 +1,27 @@
-import { useState } from 'react'
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import AccountSetup from "./pages/AccountSetup";
+import 'firebase/compat/auth';
+
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="home" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="account-setup" element={<AccountSetup />} />
+      </Routes>
+    </BrowserRouter>
     </>
+    
   )
+  
 }
 
 export default App
+
+

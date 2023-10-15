@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #111827;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,21 +33,23 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 1.8rem;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid;
+  margin: 0.3em;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -70,4 +72,58 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+h1 {
+  font-family: 'RotundaMedium';
+  font-weight: 2000;
+  color: var(--darktext);
+}
+
+h4 {
+  font-family: 'RotundaRegular';
+  font-weight: 2000;
+  color: var(--darktext);
+}
+
+h5 {
+  font-family: 'RotundaLight';
+  font-size: 12pt;
+  color: var(--midtext);
+}
+
+input {
+  background-color: rgb(57, 69, 96);
+  border-radius: 0.5rem;
+  border: none;
+  margin: 0.3em;
+  padding: 0.2em .3em;
+}
+
+body {
+  font-family: 'RotundaLight';
+  font-weight: 200;
+  color: var(--midgrey);
+  text-align: center
+}
+
+
+@font-face {
+  font-family: RotundaMedium;
+  src: url(assets/fonts/RotundaMedium.otf) format("openType");
+}
+
+@font-face {
+  font-family: RotundaLight;
+  src: url(assets/fonts/RotundaLight.otf) format("openType");
+}
+
+@font-face {
+  font-family: RotundaBold;
+  src: url(assets/fonts/RotundaBold.otf) format("openType");
+}
+
+@font-face {
+  font-family: RotundaRegular;
+  src: url(assets/fonts/RotundaRegular.otf) format("openType");
 }
