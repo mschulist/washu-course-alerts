@@ -9,10 +9,6 @@ import { getFirestore, doc, setDoc, getDoc, getDocs, updateDoc } from "firebase/
 import { useNavigate } from 'react-router-dom';
 
 
-
-
-// const navigate = useNavigate();
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -35,8 +31,9 @@ export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
 
 
-
 firebase.initializeApp(firebaseConfig);
+
+
 
 // export const auth = firebase.auth();
 
@@ -52,9 +49,9 @@ export const signInWithGoogle = () => {
             } else {
                 await getUserStatus(user.email!).then((status) => {
                     if (status) {
-                        navigate("/home");
+                        // navigate("/home");
                     } else {
-                        navigate("/account-setup");
+                        // navigate("/account-setup");
                     }
                 })
                 
@@ -93,7 +90,7 @@ const handleLoginError = () => {
 async function getUserStatus(email: string): Promise <boolean> {
     return new Promise<boolean> (async (resolve) => {
         const user = firebase.auth().currentUser;
-        const userDoc = await getDoc(doc(db, "user", user!.uid));
+        const userDoc = await getDoc(doc(db, "users", user!.uid));
         if (userDoc.exists()) {
             const userData = userDoc.data();
             const phoneNumber: number = userData!.phoneNumber;
@@ -108,19 +105,18 @@ async function getUserStatus(email: string): Promise <boolean> {
     })
 }
 
-function loginGoogle(this: any): Promise<void> {
+function loginGoogle(): Promise<void> {
     return new Promise((resolve, reject) => {
       signInWithPopup(auth, provider)
-      .then(async (result: any) => {
+      .then(async (result) => {
         // User signed in
         if (result.user && result.user.email) {
-        //   handleAuthentication(result.user.uid, result.user.email, result.user.refreshToken, expiresIn.getTime().toString());
           resolve();
         } else {
           reject("No user data in Google sign-in result.");
         }
       })
-      .catch((error: any) => {
+      .catch((error) => {
         reject(error);
       });
     });

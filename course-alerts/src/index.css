@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #111827;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -36,7 +36,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 4em;
   line-height: 1.1;
 }
 
@@ -70,4 +70,51 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+h1 {
+  font-family: 'RotundaMedium';
+  font-weight: 2000;
+  color: var(--darktext);
+}
+
+h4 {
+  font-family: 'RotundaRegular';
+  font-weight: 2000;
+  color: var(--darktext);
+}
+
+h5 {
+  font-family: 'RotundaLight';
+  font-size: 12pt;
+  color: var(--midtext);
+}
+
+body {
+  font-family: 'RotundaLight';
+  font-weight: 200;
+  color: var(--midgrey);
+  text-align: center
+}
+
+
+@font-face {
+  font-family: RotundaMedium;
+  src: url(assets/fonts/RotundaMedium.otf) format("openType");
+}
+
+@font-face {
+  font-family: RotundaLight;
+  src: url(assets/fonts/RotundaLight.otf) format("openType");
+}
+
+@font-face {
+  font-family: RotundaBold;
+  src: url(assets/fonts/RotundaBold.otf) format("openType");
+}
+
+@font-face {
+  font-family: RotundaRegular;
+  src: url(assets/fonts/RotundaRegular.otf) format("openType");
 }

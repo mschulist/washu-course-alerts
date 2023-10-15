@@ -6,9 +6,6 @@ import AccountSetup from "./pages/AccountSetup";
 import Test from "./pages/Login";
 import 'firebase/compat/auth';
 
-
-
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -67,7 +64,6 @@ function App() {
   return (
     <>
     <BrowserRouter>
-
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="/" element={<Login />} />
