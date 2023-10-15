@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/lab": "^4.0.0-alpha.61",
+    "@mui/material": "^5.14.13",
     "firebase": "^10.5.0",
     "npx": "^10.2.2",
     "react-google-login": "^5.2.2",

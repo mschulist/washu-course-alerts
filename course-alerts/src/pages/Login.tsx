@@ -15,7 +15,7 @@ const firebaseConfig = {
     appId: "1:514873528283:web:f7d2a2465eef97a7bc61fe",
     measurementId: "G-LZLY2WG27V"
 };
-import logo from '../assets/logo2.png';
+import logo from '../assets/logo3.png';
         
 
 const app = initializeApp(firebaseConfig);
@@ -79,10 +79,10 @@ const AuthComponent = () => {
             </div>
             <div className="flex flex-col w-3/4 gap-5">
                 <div className="flex flex-row place-content-center">
-                    <h1 className="text-center font-bold mb-4">WashU Course Alert</h1>
+                    <h1 className="text-center font-bold mb-4">WashU Course Watch</h1>
                 </div>
                 <div className="flex flex-row place-content-center">
-                    <button onClick={handleSignIn} className="button p-5 w-7/12 bg-gray-300">
+                    <button onClick={handleSignIn} className="button p-5 w-7/12 bg-gray-200 hover:bg-gray-300 focus:outline-none outline-none">
                         <div className="mt-1">
                             <div className="flex gap-0">
                                 <div className="flex w-3/12 h-full p-0 self-center">

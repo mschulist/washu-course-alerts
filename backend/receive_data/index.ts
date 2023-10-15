@@ -23,6 +23,7 @@ app.get('/receivePhoneNumber', (req , res) => {
 app.get('/receiveCourses', (req, res) => {
     const courses = JSON.parse(req.query.courses as string);
     const email = req.query.email as string;
+    console.log(courses, email)
     addCourses(courses, email);
     res.send('added courses')
 })

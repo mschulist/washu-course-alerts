@@ -27,6 +27,7 @@ async function addPhoneNumber(phoneNumber: string, email: string) {
     const snapshot = await db.collection('users').doc(email).set({
         phoneNumber: phoneNumber,
         email: email,
+        courses: [],
     }, { merge: true });
 }
 
