@@ -55,8 +55,8 @@ const AuthComponent = () => {
     useEffect(() => {
       // Check if the user is already signed in
       const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-        setUser(user);
-  
+        // setUser(user); // TODO
+   
         // If the user is signed in, navigate to the home page
         if (user) {
           navigate('/home');
