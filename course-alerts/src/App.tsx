@@ -68,7 +68,6 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="/" element={<Login />} />
         <Route path="account-setup" element={<AccountSetup />} />
-        <Route path="test" element={<Test />} />
       </Routes>
     </BrowserRouter>
     </>
