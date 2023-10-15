@@ -41,9 +41,9 @@ function Home() {
     }
 
 
-    const handleSignOut = () => {
+    const handleSignOut = async () => {
         const auth = getAuth();
-        auth.signOut();
+        await auth.signOut();
         navigate('/')
     };
 
