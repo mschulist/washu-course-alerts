@@ -24,7 +24,7 @@ function AccountSetup() {
 
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        axios.get('https://backend-ph7t7gmwya-uc.a.run.app/receivePhoneNumber', {
+        axios.get('https://receivedata-ph7t7gmwya-uc.a.run.app/receivePhoneNumber', {
             params: {
                 phoneNumber: phoneNumber,
                 email: email

@@ -118,16 +118,16 @@ function Home() {
             dept: department,
             sch: "L"
         })
-        axios.get('https://backend-ph7t7gmwya-uc.a.run.app/receiveCourses', {
+        axios.get('https://receivedata-ph7t7gmwya-uc.a.run.app/receiveCourses', {
             params: {
                 courses: courses,
                 email: email
             }
+        }).then((response) => {
+            console.log(response)
         })
         setCourseNumber('')
-        setSemester('')
         setSection('')
-        setDepartment('')
     }
 
 
