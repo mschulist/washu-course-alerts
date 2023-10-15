@@ -52,8 +52,18 @@ function Home() {
         setUser(name);
     }
 
+    const handleSignOut = () => {
+        const auth = getAuth();
+        auth.signOut();
+        navigate('/')
+      };
+
     return (
         <>
+
+            <div>
+                <button onClick={handleSignOut}>Sign Out</button>
+            </div>
             <div>
                 <h1>Welcome {user}</h1>
             </div>
