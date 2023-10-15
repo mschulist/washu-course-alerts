@@ -28,7 +28,7 @@ function Home() {
             dept: department,
             sch: "L"
         })
-        axios.get('http://localhost:3000/receiveCourses', {
+        axios.get('https://backend-ph7t7gmwya-uc.a.run.app/receiveCourses', {
             params: {
                 courses: courses,
                 email: email

@@ -27,6 +27,7 @@ app.get('/receiveCourses', (req, res) => {
     res.send('added courses')
 })
 
-app.listen(3000, () => {
-    console.log('server started')
+
+app.listen(8080, () => {
+    console.log('server started on 8080')
 })

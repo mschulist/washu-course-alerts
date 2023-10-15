@@ -9,6 +9,6 @@ export async function removeCourse(email: string, course: { dept: string, crs: s
     const db = getFirestore();
 
     const snapshot = await db.collection('users').doc(email).update({
-        Courses: FieldValue.arrayRemove(course)
+        courses: FieldValue.arrayRemove(course)
     });
 }

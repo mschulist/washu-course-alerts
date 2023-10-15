@@ -28,7 +28,7 @@ async function main() {
             const seatsTaken = parsed[1];
             const seatsOpen = seats - seatsTaken;
             if (seatsOpen > 0) {
-                sendText(user.phoneNumber, `${user.email}, there are ${seatsOpen} seats open in ${course.dept} ${course.crs} section ${course.sec}`);
+                sendText(user.phoneNumber, `There are ${seatsOpen} seats open in ${course.dept} ${course.crs} section ${course.sec}`);
                 removeCourse(user.email, course);
             }
         })
