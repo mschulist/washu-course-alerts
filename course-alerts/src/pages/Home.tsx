@@ -143,7 +143,7 @@ function Home() {
                 <button className="bg-gray-500 text-gray-900 fixed right-10 top-10 ring-0 focus:outline-none" onClick={handleSignOut}>Sign Out</button>
         </div>
         <div className="justify-center">
-            <div className="absolute m-auto left-0 right-0 top-5 justify-center">
+            <div className="absolute m-auto left-0 right-0 top-10 pt-10 justify-center">
                 <h1>Add Your Courses Here!</h1>
             </div>
             <div className='absolute left-5 top-5 z-10 w-2/12'>
@@ -188,9 +188,9 @@ function Home() {
                               }}
                         >
                             <CustomMenuItem value=""><em>Semester</em></CustomMenuItem>
-                            <CustomMenuItem value="FL23">FL23</CustomMenuItem>
-                            <CustomMenuItem value="SP24">SP24</CustomMenuItem>
-                            <CustomMenuItem value="FL24">FL24</CustomMenuItem>
+                            <CustomMenuItem value="FL2023">FL23</CustomMenuItem>
+                            <CustomMenuItem value="SP2024">SP24</CustomMenuItem>
+                            <CustomMenuItem value="FL2024">FL24</CustomMenuItem>
                         </CustomSelect>
                     </FormControl>
                     </div>

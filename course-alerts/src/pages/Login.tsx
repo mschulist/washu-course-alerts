@@ -79,7 +79,7 @@ const AuthComponent = () => {
             </div>
             <div className="flex flex-col w-3/4 gap-5">
                 <div className="flex flex-row place-content-center">
-                    <h1 className="text-center font-bold mb-4">WashU Course Alert</h1>
+                    <h1 className="text-center font-bold mb-4">WashU Course Watch</h1>
                 </div>
                 <div className="flex flex-row place-content-center">
                     <button onClick={handleSignIn} className="button p-5 w-7/12 bg-gray-200 hover:bg-gray-300 focus:outline-none outline-none">
