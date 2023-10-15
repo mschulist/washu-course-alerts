@@ -13,10 +13,10 @@ async function main() {
     const users = await getUsers();
 
 
-    users.map(async (user: any) => {
+    users.forEach(async (user: any) => {
         const courses = user.courses;
         console.log(courses);
-        courses.map(async (course: any) => {
+        courses.forEach(async (course: any) => {
             const sec = course.sec;
             const sem = course.sem;
             const sch = course.sch;
@@ -30,6 +30,7 @@ async function main() {
             if (seatsOpen > 0) {
                 sendText(user.phoneNumber, `There are ${seatsOpen} seats open in ${course.dept} ${course.crs} section ${course.sec}`);
                 removeCourse(user.email, course);
+                console.log("removed courses")
             }
         })
     })
