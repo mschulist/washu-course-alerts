@@ -1,11 +1,9 @@
 
 // import './App.css'
 import { useEffect, useState } from 'react';
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { initializeApp } from "firebase/app";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import { getFirestore} from "firebase/firestore";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { useNavigate } from 'react-router-dom';
 
 const firebaseConfig = {
@@ -54,9 +52,9 @@ const AuthComponent = () => {
   
     useEffect(() => {
       // Check if the user is already signed in
-      const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-        // setUser(user); // TODO
-   
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+        setUser(user);
+  
         // If the user is signed in, navigate to the home page
         if (user) {
           navigate('/home');
@@ -68,8 +66,8 @@ const AuthComponent = () => {
   
     const handleSignIn = async () => {
       try {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        await firebase.auth().signInWithPopup(provider);
+        const provider = new GoogleAuthProvider();
+        await signInWithPopup(auth, provider);
       } catch (error) {
         console.error('Error signing in with Google:', error);
       }
@@ -77,7 +75,7 @@ const AuthComponent = () => {
     };
   
     const handleSignOut = () => {
-      firebase.auth().signOut();
+      auth.signOut();
     };
   
     return (
