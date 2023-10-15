@@ -59,14 +59,14 @@ const AuthComponent = () => {
       <div>
         {user ? (
           // User is signed in, redirect to home or another page
-          <div>
+          <div className='top-0 right-0'>
             <h1>Welcome!</h1>
             <button onClick={handleSignOut}>Sign Out</button>
           </div>
         ) : (
           // User is not signed in, ask for phone number
         <div className="flex flex-row gap-5 w-full">
-            <div className="flex flex-col  w-1/4">
+            <div className="flex flex-col w-1/4">
                 <img src={logo}></img>
             </div>
             <div className="flex flex-col w-3/4 gap-5">
@@ -77,7 +77,7 @@ const AuthComponent = () => {
                     <button onClick={handleSignIn} className="button p-5 w-7/12 bg-gray-300">
                         <div className="mt-1">
                             <div className="flex gap-0">
-                                <div className="flex w-3/12 h-full p-0">
+                                <div className="flex w-3/12 h-full p-0 self-center">
                                     <img className="pl-4 pr-0" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
                                 </div>
                                 <div className="flex w-9/12 pl-0 pt-2">
