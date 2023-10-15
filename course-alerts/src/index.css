@@ -33,21 +33,23 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 1.8rem;
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 2em;
   line-height: 1.1;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid;
+  margin: 0.3em;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -88,6 +90,14 @@ h5 {
   font-family: 'RotundaLight';
   font-size: 12pt;
   color: var(--midtext);
+}
+
+input {
+  background-color: rgb(57, 69, 96);
+  border-radius: 0.5rem;
+  border: none;
+  margin: 0.3em;
+  padding: 0.2em .3em;
 }
 
 body {

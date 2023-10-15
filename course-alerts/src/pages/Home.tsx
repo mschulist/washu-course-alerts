@@ -98,7 +98,6 @@ const CustomSelect = withStyles({
 
 function Home() {
     const navigate = useNavigate();
-    const [user, setUser] = useState('');
     const [courseNumber, setCourseNumber] = useState('');
     const [semester, setSemester] = useState('');
     const [section, setSection] = useState('');
@@ -121,43 +120,36 @@ function Home() {
             dept: department,
             sch: "L"
         })
-        axios.get('http://localhost:3000/receiveCourses', {
+        axios.get('https://backend-ph7t7gmwya-uc.a.run.app/receiveCourses', {
             params: {
                 courses: courses,
                 email: email
             }
         })
+        setCourseNumber('')
+        setSemester('')
+        setSection('')
+        setDepartment('')
     }
 
-    const getName = () => {
+
+    const handleSignOut = async () => {
         const auth = getAuth();
-        const user = auth.currentUser;
-        if (user != null) {
-            return user.displayName
-        } else {
-            return null
-        }
-    }
-
-    const name = getName();
-    if (name === '' && name != null) {
-        setUser(name);
-    }
-
-    const handleSignOut = () => {
-        const auth = getAuth();
-        auth.signOut();
+        await auth.signOut();
         navigate('/')
-      };
+    };
 
     return (
         <>
-        <div>
+        <div className='absolute top-5 right-5 z-10'>
                 <button className="bg-gray-500 text-gray-900 fixed right-10 top-10 ring-0 focus:outline-none" onClick={handleSignOut}>Sign Out</button>
         </div>
         <div className="justify-center">
-            <div className="justify-center">
-                <h1>Welcome {user}</h1>
+            <div className='absolute m-auto left-0 right-0 top-5' className="justify-center">
+                <h1>Add Your Courses Here!</h1>
+            </div>
+            <div className='absolute left-5 top-5 z-10 w-2/12'>
+                <img src="https://acac.wustl.edu/wp-content/themes/acac-theme/assets/images/wustllogo.svg" className='invert'></img>
             </div>
             <div className="w-1/2 mx-auto pt-10">
                 <form onSubmit={handleSubmit}>
@@ -285,6 +277,10 @@ function Home() {
                         }}
                         />
                     <br />
+                    <label>
+                        Section:
+                        <input type="text" name={section} onChange={(e) => setSection(e.target.value)} />
+                    </label>
                     <br />
                     <input type="submit" className="button text-gray-800 p-5 w-7/12 bg-gray-300 hover:bg-gray-400"  value="Submit" />
                 </form>

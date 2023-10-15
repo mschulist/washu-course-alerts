@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 firebase_key*
+build/
+.firebase
