@@ -20,8 +20,13 @@ import logo from '../assets/logo2.png';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-export const auth = getAuth();
-export const provider = new GoogleAuthProvider();
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
+
+// to prevent errors lol
+if (provider) {
+  null
+}
 
 const AuthComponent = () => {
     const [user, setUser] = useState<unknown>(null)
