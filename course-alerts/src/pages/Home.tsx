@@ -17,18 +17,18 @@ import Button from '@mui/material';
 
 const CustomAutocomplete = withStyles({
     option: { // options in dropdown
-      backgroundColor: '#64748b', // replace 'yourColor' with your desired color,
+      backgroundColor: '#64748b', 
       fontFamily: 'RotundaLight',
       '&:hover': {
-        backgroundColor: 'yourHoverColor', // replace 'yourHoverColor' with your desired hover color
+        backgroundColor: 'yourHoverColor', 
       },
     },
     noOptions: {
-      backgroundColor: '#64748b', // replace 'yourColor' with your desired color
+      backgroundColor: '#64748b', 
       fontFamily: 'RotundaLight',
     },
     paper: { // dropdown itself
-      backgroundColor: '#64748b', // replace 'yourColor' with your desired color
+      backgroundColor: '#64748b', 
     },
   })(Autocomplete);
 
@@ -86,7 +86,7 @@ const CustomSelect = withStyles({
 
   const CustomInputLabel = withStyles({
     root: {
-      fontFamily: 'RotundaLight !important', // replace 'yourFontFamily' with your desired font family
+      fontFamily: 'RotundaLight !important', 
       color: '#71717a !important' , 
       '&.Mui-focused': {
             color: 'red !important',
@@ -169,7 +169,7 @@ function Home() {
                             id="dropdown"
                             value={semester}
                             style={{
-                                backgroundColor: 'white', // Replace with your desired background color
+                                backgroundColor: 'white', 
                                 fontFamily: 'RotundaLight'
                             }}
                             sx={{
@@ -178,7 +178,7 @@ function Home() {
                                     borderColor: 'white',
                                 },
                                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: 'red', // replace 'yourColor' with your desired color
+                                    borderColor: 'red',
                                 },
                                   '& .MuiInputLabel-root': {
                                     fontFamily: 'RotundaLight',
@@ -229,7 +229,7 @@ function Home() {
                         placeholder="Course Number (eg. L52)"
                         style={{
                             width: '100%',
-                            backgroundColor: 'white', // Replace with your desired background color
+                            backgroundColor: 'white', 
                             fontFamily: 'RotundaLight',
                             borderRadius: '5px'
                         }}
@@ -261,7 +261,7 @@ function Home() {
                         placeholder="Section Number (eg. 01)"
                         style={{
                             width: '100%',
-                            backgroundColor: 'white', // Replace with your desired background color
+                            backgroundColor: 'white', 
                             fontFamily: 'RotundaLight',
                             borderRadius: '5px'
                         }}
