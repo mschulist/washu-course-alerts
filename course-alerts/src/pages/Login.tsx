@@ -24,7 +24,7 @@ export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
 
 const AuthComponent = () => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<unknown>(null)
     const navigate = useNavigate();
   
     useEffect(() => {
@@ -37,6 +37,9 @@ const AuthComponent = () => {
           navigate('/home');
         }
       });
+      if (db) {
+        console.log("Connected to Firebase");
+      } // this is annoying but necessary
   
       return () => unsubscribe();
     }, [navigate]);
