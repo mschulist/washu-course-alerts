@@ -1,9 +1,9 @@
 
 // import './App.css'
 import { useEffect, useState } from 'react';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore } from 'firebase/firestore/lite';
 import { useNavigate } from 'react-router-dom';
 
 const firebaseConfig = {
@@ -16,29 +16,6 @@ const firebaseConfig = {
     measurementId: "G-LZLY2WG27V"
 };
 import logo from '../assets/logo2.png';
-
-    //     <div className="grid grid-cols-2 grid-rows-2 gap-4">
-    //     <div className="grid row-span-2">
-    //         <img src={logo}></img>
-    //     </div>
-    //     <div className="grid col-span-1">
-    //     <h1 className="text-4xl text-center font-bold mb-4">WashU Course Alert</h1>
-    //     </div>
-    //     <div className="grid col-span-1">
-    //       <button onClick={signInWithGoogle} className="button p-5">
-    //         <div className="mt-1">
-    //             <div className="flex gap-4">
-    //                 <div className="w-1/6">
-    //                     <img width="40px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-    //                 </div>
-    //                 <div className="w-5/6">
-    //                     <p className="text-center">Sign in with Google</p>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //       </button>
-    //     </div>
-    //   </div>
         
 
 const app = initializeApp(firebaseConfig);
@@ -54,7 +31,7 @@ const AuthComponent = () => {
       // Check if the user is already signed in
       const unsubscribe = auth.onAuthStateChanged((user) => {
         setUser(user);
-  
+
         // If the user is signed in, navigate to the home page
         if (user) {
           navigate('/home');
