@@ -45,7 +45,7 @@ function AccountSetup() {
                     <h4 className="block text-white-700 text-lg font-bold mb-2" >
                         Phone Number
                     </h4>
-                    <input type="text" name={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="shadow text-white appearance-none border border-red-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
+                    <input type="text" name={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="shadow bg-gray-200 text-gray-800 appearance-none border border-none rounded w-full py-4 px-5 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
                     {/* <p className="text-red-500 text-xs italic">Please input a valid phone number.</p> */}
                     </div>
                     <div className="flex place-content-center">
