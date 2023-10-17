@@ -32,26 +32,31 @@ async function getCourseInfo(sem: string, sch: string, dept: string, crs: string
 // This function is very error prone
 // Returns: [seats, enroll, waits] | null
 async function getSectionSeats(sem: string, sch: string, dept: string, crs: string, sec: string) {
-    let html = await getCourseInfo(sem, sch, dept, crs);
+    try {
+        let html = await getCourseInfo(sem, sch, dept, crs);
 
-    let dom = new JSDOM(html);
-    const document = dom.window.document;
+        let dom = new JSDOM(html);
+        const document = dom.window.document;
 
 
-    // We assume there is exactly one element
-    // NOTE: This breaks if the site changes their html setup
-    const table = document.querySelector(".ResultTable")!;
-    const sections = table.querySelectorAll("table.MainTableRow");
+        // We assume there is exactly one element
+        // NOTE: This breaks if the site changes their html setup
+        const table = document.querySelector(".ResultTable")!;
+        const sections = table.querySelectorAll("table.MainTableRow");
 
-    for (const section of sections) {
-        const row = section.querySelector("tr")!;
-        const section_id = row.children[1].innerHTML;
+        for (const section of sections) {
+            const row = section.querySelector("tr")!;
+            const section_id = row.children[1].innerHTML;
 
-        if (section_id == sec)
-            return [...row.children].slice(row.childElementCount - 3).map(x => parseFloat(x.innerHTML));
+            if (section_id == sec)
+                return [...row.children].slice(row.childElementCount - 3).map(x => parseFloat(x.innerHTML));
+        }
+
+        return null;
+    } catch (e) {
+        console.log(e);
+        return null;
     }
-
-    return null;
 }
 
 
