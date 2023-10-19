@@ -5,6 +5,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const firebaseConfig = {
     apiKey: "AIzaSyD1gX4vh_9PFmfziWTjFXo8Q25gB8VmNWk",
@@ -15,8 +16,8 @@ const firebaseConfig = {
     appId: "1:514873528283:web:f7d2a2465eef97a7bc61fe",
     measurementId: "G-LZLY2WG27V"
 };
-import logo from '../assets/logo3.png';
-        
+
+
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

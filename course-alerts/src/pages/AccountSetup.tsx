@@ -21,6 +21,7 @@ function AccountSetup() {
     }
 
     const email = getEmail();
+    console.log(email)
 
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();

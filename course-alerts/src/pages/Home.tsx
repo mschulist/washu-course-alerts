@@ -106,6 +106,7 @@ function Home() {
         const auth = getAuth();
         const user = auth.currentUser;
         const email = user != null ? user.email : null;
+        console.log(email)
         console.log(courseNumber)
         console.log(semester)
         console.log(section)
