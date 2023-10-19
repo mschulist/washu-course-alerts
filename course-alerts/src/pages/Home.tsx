@@ -117,7 +117,7 @@ function Home() {
             sem: semester,
             sec: section,
             dept: department,
-            sch: "L"
+            sch: department.charAt(0)
         })
         axios.get('https://receivedata-ph7t7gmwya-uc.a.run.app/receiveCourses', {
             params: {
@@ -188,10 +188,10 @@ function Home() {
                                 },
                               }}
                         >
-                            <CustomMenuItem value=""><em>Semester</em></CustomMenuItem>
-                            <CustomMenuItem value="FL2023">FL23</CustomMenuItem>
-                            <CustomMenuItem value="SP2024">SP24</CustomMenuItem>
-                            <CustomMenuItem value="FL2024">FL24</CustomMenuItem>
+                            {/* <CustomMenuItem value=""><em>Semester</em></CustomMenuItem> */}
+                            {/* <CustomMenuItem value="FL2023">FL23</CustomMenuItem> */}
+                            <CustomMenuItem value="SP2024">SP2024</CustomMenuItem>
+                            {/* <CustomMenuItem value="FL2024">FL24</CustomMenuItem> */}
                         </CustomSelect>
                     </FormControl>
                     </div>
@@ -362,6 +362,38 @@ const departments:  Department[] = [
     {'code': 'L18', 'name': 'URBAN STUDIES'},
     {'code': 'L77', 'name': 'WOMEN, GENDER, AND SEXUALITY STUDIES'},
     {'code': 'L13', 'name': 'WRITING'},
+    {"code": "E62", "name": "BIOMEDICAL ENGINEERING"},
+    {"code": "E81", "name": "COMPUTER SCIENCE AND ENGINEERING"},
+    {"code": "E35", "name": "ELECTRICAL AND SYSTEMS ENGINEERING"},
+    {"code": "E44", "name": "ENERGY, ENVIRONMENTAL AND CHEMICAL ENGR"},
+    {"code": "EGS", "name": "ENGINEERING GRADUATE STUDIES"},
+    {"code": "E60", "name": "GENERAL ENGINEERING"},
+    {"code": "E37", "name": "MECHANICAL ENGINEERING & MATERIALS SCIENCE"},
+    {"code": "B53", "name": "MANAGEMENT (B53)"},
+    {"code": "B50", "name": "ACCOUNTING (B50)"},
+    {"code": "B54", "name": "MANAGERIAL ECONOMICS (B54)"},
+    {"code": "B60", "name": "ACCOUNTING (B60)"},
+    {"code": "B64", "name": "MANAGERIAL ECONOMICS (B64)"},
+    {"code": "B51", "name": "ADMINISTRATION"},
+    {"code": "B65", "name": "MARKETING (B65)"},
+    {"code": "B69", "name": "DATA ANALYTICS (B69)"},
+    {"code": "B55", "name": "MARKETING (B55)"},
+    {"code": "B59", "name": "DATA ANALYTICS (B59)"},
+    {"code": "B56", "name": "ORGANIZATIONAL BEHAVIOR (B56)"},
+    {"code": "B62", "name": "FINANCE (B62)"},
+    {"code": "B66", "name": "ORGANIZATIONAL BEHAVIOR (B66)"},
+    {"code": "B52", "name": "FINANCE (B52)"},
+    {"code": "B67", "name": "SUPPLY CHAIN, OPERATIONS, AND TECHNOLOGY (B67)"},
+    {"code": "B99", "name": "INTERNATIONAL STUDIES"},
+    {"code": "B57", "name": "SUPPLY CHAIN, OPERATIONS, AND TECHNOLOGY (B57)"},
+    {"code": "B63", "name": "MANAGEMENT (B63)"},
+    {"code": "A46", "name": "ARCHITECTURE"},
+    {"code": "A48", "name": "LANDSCAPE ARCHITECTURE"},
+    {"code": "A49", "name": "URBAN DESIGN"},
+    {"code": "F10", "name": "ART (CORE AND MAJOR STUDIO COURSES)"},
+    {"code": "F20", "name": "ART (ELECTIVE STUDIO COURSES)"}
+
+    
 ]
 
 export default Home
