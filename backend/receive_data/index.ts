@@ -1,4 +1,4 @@
-import { addCourses, addEmailName, addPhoneNumber } from "./addUsers";
+import { addCourses, addEmailName, addPhoneNumber, getPhoneNumber, getCourses, removeCourse} from "./addUsers";
 import * as express from 'express'
 var cors = require('cors')
 
@@ -26,6 +26,27 @@ app.get('/receiveCourses', (req, res) => {
     console.log(courses, email)
     addCourses(courses, email);
     res.send('added courses')
+})
+
+app.get('/getPhoneNumber', async (req, res) => {
+    const email = req.query.email as string;
+    const phoneNumber = await getPhoneNumber(email);
+    console.log(phoneNumber)
+    res.send(phoneNumber)
+})
+
+app.get('/getCourses', async (req, res) => {
+    console.log(req.query.email)
+    const courses = await getCourses(req.query.email as string);
+    res.send(courses)
+})
+
+app.get('/removeCourse' , async (req, res) => {
+    const email = req.query.email as string;
+    console.log(req.query.course)
+    const course = JSON.parse(req.query.course as string) as { dept: string, crs: string, sec: string, sem: string, sch: string };
+    removeCourse(email, course);
+    res.send(`removed course ${course.dept} ${course.crs} ${course.sec}`)
 })
 
 

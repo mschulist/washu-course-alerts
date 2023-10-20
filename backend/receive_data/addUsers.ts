@@ -40,6 +40,46 @@ async function addCourses(courses: string[], email: string) {
     }, { merge: true });
 }
 
+async function getPhoneNumber(email: string) {
+
+    const db = getFirestore();
+
+    const snapshot = await db.collection('users').doc(email).get();
+
+    if (snapshot.data() === undefined) {
+        return "DNE";
+    }
+
+    return snapshot.data().phoneNumber;
+}
+
+
+async function getCourses(email: string): Promise<any[]> {
+
+    const db = getFirestore();
+
+    console.log(email);
+
+    const snapshot = await db.collection('users').doc(email).get();
+
+    return snapshot.data().courses;
+}
+
+async function removeCourse(email: string, course: { dept: string, crs: string, sec: string, sem: string, sch: string }) {
+
+    const db = getFirestore();
+
+    const snapshot = await db.collection('users').doc(email).update({
+        courses: FieldValue.arrayRemove(course)
+    });
+}
+
+// getUsers().then((users: any) => {
+//     users.map((user: any) => {
+//         console.log(user.Courses);
+//     })
+// })
+
 
 // async function addUsers(email: string, name: string, phoneNumber: string, courses: string[]) {
 
@@ -52,4 +92,4 @@ async function addCourses(courses: string[], email: string) {
 //     });
 // }
 
-export { addCourses, addEmailName, addPhoneNumber };
+export { addCourses, addEmailName, addPhoneNumber, getPhoneNumber, getCourses, removeCourse };
