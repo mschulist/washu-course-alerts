@@ -144,6 +144,7 @@ function Home() {
         }
       }).then((response) => {
         console.log(response)
+        getCourses(email)
       })
     }
     setTimeout(() => {
@@ -179,9 +180,10 @@ function Home() {
       }
     }).then((response) => {
       console.log(response)
+      setCourseNumber('')
+      setSection('')
+      getCourses(email)
     })
-    setCourseNumber('')
-    setSection('')
     setTimeout(() => {
       getCourses(email)
     }, 400)
