@@ -101,6 +101,7 @@ function Home() {
   const [semester, setSemester] = useState('');
   const [section, setSection] = useState('');
   const [department, setDepartment] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const auth = getAuth();
   const user = auth.currentUser;
@@ -108,12 +109,24 @@ function Home() {
   const email = user != null ? user.email : null;
   console.log(email)
 
+  useEffect(() => {
+    if (email != null) {
+      axios.get('https://receivedata-ph7t7gmwya-uc.a.run.app/getPhoneNumber', {
+        params: {
+          email: email
+        }
+      }).then((response) => {
+        setPhoneNumber(response.data)
+      })
+    }
+  }, [email])
+
 
   useEffect(() => {
     const auth = getAuth();
     const user = auth.currentUser;
     if (user == null) {
-          navigate('/')
+      navigate('/')
     }
   }, [navigate])
 
@@ -189,6 +202,10 @@ function Home() {
     }, 400)
   }
 
+  const changePhoneNumber = async () => {
+    navigate('/update-phone')
+  }
+
 
   const handleSignOut = async () => {
     const auth = getAuth();
@@ -199,7 +216,8 @@ function Home() {
   return (
     <>
       <div className='absolute top-5 right-5 z-10'>
-        <button className="bg-gray-500 text-gray-900 fixed right-10 top-10 ring-0 focus:outline-none" onClick={handleSignOut}>Sign Out</button>
+        <button className="bg-gray-500 text-gray-900 fixed right-10 top-10 ring-0 focus:outline-none w-48" onClick={handleSignOut}>Sign Out</button>
+        <button className="bg-gray-500 text-gray-900 fixed right-10 top-[7.5em] ring-0 focus:outline-none w-48 text-lg" onClick={changePhoneNumber}>Change <br></br> Phone Number</button>
       </div>
       <div>
         <div className="absolute m-auto left-0 right-0 top-10 pt-10 justify-center">
@@ -209,13 +227,15 @@ function Home() {
           <img src="https://acac.wustl.edu/wp-content/themes/acac-theme/assets/images/wustllogo.svg" className='invert'></img>
         </div>
         <div className='flex justify-center items-center h-1/6'>
-          <div>
+          <div className='bottom-0 h-[60vh]'>
             Hey {name}!
-            <div className='flex flex-col justify-normal overflow-auto h-[65vh]'>
-            {courses.map((course, index) => (
-              <Courses index={index} courses={course} removecourse={removecourse} />
-            )
-            )}
+            <br></br>
+            ({phoneNumber})
+            <div className='flex flex-col justify-normal overflow-auto h-full bottom-0'>
+              {courses.map((course, index) => (
+                <Courses index={index} courses={course} removecourse={removecourse} />
+              )
+              )}
             </div>
           </div>
           <div className="w-1/2 mx-auto pt-10 p-5">

@@ -31,6 +31,15 @@ async function addPhoneNumber(phoneNumber: string, email: string) {
     }, { merge: true });
 }
 
+async function updatePhoneNumber(phoneNumber: string, email: string) {
+
+    const db = getFirestore();
+
+    const snapshot = await db.collection('users').doc(email).update({
+        phoneNumber: phoneNumber
+    }, { merge: true });
+}
+
 async function addCourses(courses: string[], email: string) {
 
     const db = getFirestore();
@@ -92,4 +101,4 @@ async function removeCourse(email: string, course: { dept: string, crs: string, 
 //     });
 // }
 
-export { addCourses, addEmailName, addPhoneNumber, getPhoneNumber, getCourses, removeCourse };
+export { addCourses, addEmailName, addPhoneNumber, getPhoneNumber, getCourses, removeCourse, updatePhoneNumber };

@@ -1,4 +1,4 @@
-import { addCourses, addEmailName, addPhoneNumber, getPhoneNumber, getCourses, removeCourse} from "./addUsers";
+import { addCourses, addEmailName, addPhoneNumber, getPhoneNumber, getCourses, removeCourse, updatePhoneNumber} from "./addUsers";
 import * as express from 'express'
 var cors = require('cors')
 
@@ -18,6 +18,13 @@ app.get('/receivePhoneNumber', (req , res) => {
     const email = req.query.email as string;
     addPhoneNumber(phoneNumber, email);
     res.send('added phone number')
+})
+
+app.get('/updatePhoneNumber', (req, res) => {
+    const phoneNumber = req.query.phoneNumber as string;
+    const email = req.query.email as string;
+    updatePhoneNumber(phoneNumber, email);
+    res.send('updated phone number')
 })
 
 app.get('/receiveCourses', (req, res) => {
