@@ -31,9 +31,10 @@ function AccountSetup() {
                 phoneNumber: phoneNumber,
                 email: email
             }
+        }).then((response) => {
+            navigate('/home')
+            console.log(response.data)
         })
-        console.log(phoneNumber)
-        navigate('/home')
     }
 
     return (
